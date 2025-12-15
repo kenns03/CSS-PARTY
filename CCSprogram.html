@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCS Futuristic Party Program</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #000000 60%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+      position: relative;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 15px #00f0ff; }
+      to { box-shadow: 0 0 30px #00f0ff; }
+    }
+
+    /* Header with centered text and side logos */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .logo-left, .logo-right {
+      width: 80px; /* big logos */
+      height: auto;
+    }
+
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .header-center h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00f0ff;
+      margin-bottom: 4px;
+    }
+
+    .header-center p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .gif-box {
+      display: flex;
+      justify-content: center;
+      margin: 18px 0;
+    }
+
+    .gif-box h2 {
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      animation: glowText 1.5s infinite alternate;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
+      to { text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff; }
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 9px;
+      font-size: 0.85rem;
+    }
+
+    .details div {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 4px solid #00f0ff;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #00f0ff;
+      text-align: center;
+    }
+
+    .program {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+
+    .item {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 12px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+    }
+
+    .time {
+      color: #00f0ff;
+      font-weight: 600;
+      font-size: 0.75rem;
+      width: 75px;
+    }
+
+    .item-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .item-content span:nth-child(1) {
+      color: #fff;
+    }
+
+    .item-content span:nth-child(2) {
+      font-size: 0.65rem;
+      color: #aaa;
+      margin-top: 2px;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 400px) {
+      .header-center h1 { font-size: 1.5rem; }
+      .logo-left, .logo-right { width: 60px; }
+      .gif-box h2 { font-size: 1rem; }
+    }
+
+    /* PRINT STYLES: exactly like screen */
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: radial-gradient(circle at top, #0f2027, #000000 60%);
+        color: #ffffff;
+        display: block;
+        padding: 0.5in;
+      }
+
+      .card {
+        max-width: 100%;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+        backdrop-filter: blur(14px);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        animation: glow 3s infinite alternate;
+        padding: 24px;
+      }
+
+      header, .gif-box, .details, .program, footer {
+        color: #fff;
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+
+      .logo-left, .logo-right {
+        width: 80px;
+      }
+
+      .item {
+        background: rgba(255, 255, 255, 0.06);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <header>
+      <img src="E:\layout\cs.png" alt="Logo Left" class="logo-left">
+      <div class="header-center">
+        <h1>CCS PARTY</h1>
+        <p>Code • Connect • Celebrate</p>
+      </div>
+      <img src="E:\layout\bc.png" alt="Logo Right" class="logo-right">
+    </header>
+
+    <div class="gif-box">
+      <h2>Enjoy & Have Fun CSS!</h2>
+    </div>
+
+    <div class="details">
+      <div>📅 Date: December 20, 2025</div>
+      <div>⏰ Time: 9:00 AM – 03:00 PM</div>
+      <div>📍 Venue: AUDIO VISUAL ROOM (AVR)</div>
+    </div>
+
+    <h2>Program Flow</h2>
+
+    <div class="program">
+      <div class="item">
+        <span class="time">9:30 AM</span>
+        <div class="item-content">
+          <span>Prayer, National Anthem, BC Hymn</span>
+          <span>AVR</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">9:45 AM</span>
+        <div class="item-content">
+          <span>Opening Remarks</span>
+          <span>Faith Anne Rogando</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">9:50 AM</span>
+        <div class="item-content">
+          <span>Message</span>
+          <span>Program Chair</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">10:00 AM</span>
+        <div class="item-content">
+          <span>Intermission no.</span>
+          <span>CCS Officer's</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">10:15 AM</span>
+        <div class="item-content">
+          <span>CCS Got Talent 1<sup>st</sup> to 2<sup>nd</sup> year</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">10:35 AM</span>
+        <div class="item-content">
+          <span>1-5 raffle draw</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">10:40 AM</span>
+        <div class="item-content">
+          <span>Games</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">11:00 AM</span>
+        <div class="item-content">
+          <span>CCS Got Talent 3<sup>rd</sup> to 4<sup>th</sup> year</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">11:30 AM</span>
+        <div class="item-content">
+          <span>Intermission no.</span>
+          <span>CCS Faculty</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">11:50 AM</span>
+        <div class="item-content">
+          <span>2-5 raffle draw</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">12:00 PM</span>
+        <div class="item-content">
+          <span>Luncheon</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">2:00 PM</span>
+        <div class="item-content">
+          <span>Announcement of Winners</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">2:30 PM</span>
+        <div class="item-content">
+          <span>Grand Draw</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">3:00 PM</span>
+        <div class="item-content">
+          <span>Closing Remarks</span>
+          <span>Dean</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>College of Computer Studies • Futuristic Party</p>
+    </footer>
+  </div>
+
+</body>
+</html>
